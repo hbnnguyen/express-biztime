@@ -10,10 +10,11 @@ const db = require("../db");
 /**
  * TODO: write me
  */
-router.get("/", function (req, res) {
-  const results = db.query("SELECT * FROM companies");
+router.get("/", async function (req, res) {
+  const results = await db.query("SELECT code, name FROM companies");
+  console.log(results);
   const companies = results.rows;
-
+  debugger
   return res.json({ companies });
 });
 
