@@ -17,6 +17,7 @@ app.use(function (req, res, next) {
 
 /** Error handler: logs stacktrace and returns JSON error message. */
 app.use(function (err, req, res, next) {
+  console.log("global error handler")
   const status = err.status || 500;
   const message = err.message;
   if (process.env.NODE_ENV !== "test") console.error(status, err.stack);
